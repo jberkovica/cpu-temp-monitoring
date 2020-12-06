@@ -1,0 +1,42 @@
+body {
+    background-color: #222831;
+    font-family: "Roboto", sans-serif;
+}
+
+h1 {
+    font-weight: 300;
+    text-align: center;
+    color: #eeeeee;
+}
+
+p {
+    font-weight: 100;
+    color: #eeeeee;
+    text-align: center;
+}
+
+.container-fluid {
+    padding: 0 20%;
+}
+
+.title {
+    margin: 5% auto;
+}
+
+.temp-card {
+    background-color: #393e46;
+    border-radius: 25px;
+    width: 18rem;
+    padding: 5%;
+    margin: 10% auto;
+}
+
+.temperature {
+    font-family: "Roboto", sans-serif;
+    font-size: 3rem;
+    line-height: 1.5;
+    font-weight: 300;
+    color: #00adb5;
+    text-align: center;
+}
+
