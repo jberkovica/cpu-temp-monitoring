@@ -30,5 +30,5 @@ http://localhost:3000
 
 ### TODO:
 - add tests
-- WEB: configure refresh rate
-- WEB: add bar chart
+- configurable refresh rate
+- add bar chart
