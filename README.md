@@ -1,8 +1,8 @@
 ### Given task
 Create service with only one webpage which continuously shows current system CPU temperature and last minute average. Frontend part JS/CSS/HTML with any of external libraries/frameworks, backend NodeJS/Python with any of external libraries/frameworks/modules
 
-### Solution demo
-[Demo]
+### Solution preview
+![Demo](https://user-images.githubusercontent.com/36275311/101298702-f2098900-3837-11eb-9cfd-827b295e7592.gif)
 
 ### Implementation
 Implementation made based on:
