@@ -25,17 +25,40 @@
 
             <div class="temp-card">
                 <p>Current temp</p>
-                <h2 class="temperature" id="temp-now">43°</h2>
+                <h2 class="temperature" id="temp-now"></h2>
             </div>
 
             <div class="temp-card">
                 <p>Last minute average</p>
-                <h2 class="temperature" id="temp-average">41°</h2>
+                <h2 class="temperature" id="temp-average"></h2>
             </div>
         </div>
 
-        <!-- JavaScript -->
+        <!-- iQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="app.js"></script>
+
+        <!-- socket.io  -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            const socket = io();
+
+            socket.on("connect", () => {
+                $("#temp-now").text("loading");
+                $("#temp-average").text("loading");
+            });
+
+            socket.on("update", function (tempNow, tempAvg) {
+                cpuNow(tempNow);
+                cpuAvg(tempAvg);
+            });
+
+            function cpuNow(temp) {
+                $("#temp-now").text(temp + "°");
+            }
+
+            function cpuAvg(temp) {
+                $("#temp-average").text(temp + "°");
+            }
+        </script>
     </body>
 </html>

@@ -2,7 +2,7 @@
   "name": "cpu-temp-monitoring",
   "version": "1.0.0",
   "description": "App for CPU temperature monitoring",
-  "main": "cpu-monitoring.js",
+  "main": "app.js",
   "directories": {
     "test": "tests"
   },
@@ -13,8 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "http": "^0.0.1-security",
     "osx-temperature-sensor": "^1.0.7",
-    "path": "^0.12.7",
+    "socket.io": "^3.0.3",
     "systeminformation": "^4.30.11"
   }
 }
