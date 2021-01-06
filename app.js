@@ -14,15 +14,10 @@ const refreshInterval = 3000;
 const periodSeconds = 60;
 const periodMaxLen = (periodSeconds * 1000) / refreshInterval;
 
-// TODO: generic - rewrite using React
+app.use(express.static(path.join(__dirname, "public")));
 
-// accessing static css file
-// TODO: use Path.join so it is working on all OS
-app.use(express.static(path.join(__dirname, "/public")));
-
-// TODO: use Path.join so it is working on all OS
 app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "/index.html"));
+    res.sendFile(path.join(__dirname, "index.html"));
 });
 
 io.on("connection", (socket) => {
@@ -54,20 +49,29 @@ function monitorCPU(socket, tempInPeriod) {
 }
 
 function calcAverage(temp, tempInPeriod) {
+     
     tempInPeriod.push(temp);
-    // TODO: use splice instead of shift?
+
+    // var 1
     if (tempInPeriod.length > periodMaxLen) {
         tempInPeriod.shift();
     }
+    
+    // var 2
+    // tempInPeriod = [...tempInPeriod, temp].slice(-periodMaxLen);
 
-    // TODO: come up with more elegant solution
-    // var1
-    // const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    // let total = tempInPeriod.reduce(reducer);
+    // var 3
+    // tempInPeriod =
+    //     tempInPeriod.length > periodMaxLen
+    //         ? [...tempInPeriod, temp].slice(-periodMaxLen)
+    //         : [...tempInPeriod, temp];
 
-    // var2
-    let total = 0;
-    tempInPeriod.forEach((element) => (total += element));
+
+    console.log(tempInPeriod);
+
+    // TODO: lambda
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;
+    let total = tempInPeriod.reduce(reducer);
 
     return total / tempInPeriod.length;
 }
